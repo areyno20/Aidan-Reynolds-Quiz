@@ -6,32 +6,38 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
   <body>
-    <div class="start">
-      <h1>Javascript Quiz</h1>
-      <button id="start-button">Start</button>
-    </div>
-    <div id="display-container">
-      <div class="header">
-        <div class="number-of-count">
-          <span class="number-of-question">1 of 5 questions</span>
-        </div>
-        <div class="timer">
-          <span class="time-left">10s</span>
-        </div>
+
+    <div class="header" class="hide">
+      <div class="number-of-count">
+        <span class="number-of-question">1 of 5 questions</span>
       </div>
-    <div id="title"></div>
-    <ul>
-      <li class="alternative"></li>
-      <li class="alternative"></li>
-      <li class="alternative"></li>
-      <li class="alternative"></li>
-    </ul>
-      <button id="next-button">Next Question</button>
+      <div class="timer">
+        <span class="time-left">10s</span>
+      </div>
     </div>
+
+    <div class="container">
+      <div id="question-container" class="hide"></div>
+      <div id="question">Question</div>
+      <div id="answer-buttons" class="btn-grid">
+        <button class="alternative">Answer 1</button>
+        <button class="alternative">Answer 2</button>
+        <button class="alternative">Answer 3</button>
+        <button class="alternative">Answer 4</button>
+      </div>
+    </div>
+
     <div class="score-container">
       <div id="user-score">Score</div>
-      <button id="restart">Restart</button>
     </div>
+
+    <div class="controls">
+      <button id="start-button">Start</button>
+      <button id="next-button" class="hide">Next Question</button>
+      <button id="restart" class="hide">Restart</button>
+    </div>
+
     <script src="./assets/js/script.js"></script>
+
   </body>
 </html>

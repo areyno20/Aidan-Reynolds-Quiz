@@ -1,5 +1,14 @@
 //Constants
+const startButton = document.getElementById('start-button')
+const questionContainerElement = document.getElementById('question-container')
 
+//Start Game
+
+startButton.addEventListener('click', startQuiz)
+
+function startQuiz() {
+  startButton.classList.add('hide')
+}
 
 
 //Quiz Question Array
@@ -32,15 +41,3 @@ let questionFive ={
   answer: ["getElementbyId()", "getElementsByClassName()", "Both A and B", "None of the above"],
   correctAnswer: 3      
 };
-
-function showQuestion(q){
-  let titleDiv = document.getElementById("title")
-  titleDiv.textContent = q.title
-  let alternative = document.querySelector('.alternative')
-  alternative.forEach(function(element, index){
-    element.textContent= q.alternatives[index]});
-}
-
-showQuestion(questionOne);
-
-let button = document.getElementById('next-button')
