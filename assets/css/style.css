@@ -3,12 +3,11 @@
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 body {
-  /*background-image: url("../images/background.jpg");*/
-  /* background-size: 50%; */
-  background-color: #857373;
-  padding: 10%;
-  margin: 10%;
-  width: 90vw;
+  background-image: url("../images/background.jpg");
+  background-size: 50%;
+  padding: 0%;
+  margin-left: 0%;
+  width: 100vw;
   height: 100vh;
   display: grid;
   justify-content: center;
@@ -27,22 +26,28 @@ body {
 
 .container {
   background-color: #ffffff;
-  height: 250px;
+  height: 300px;
   width: 800px;
   max-width: 80%;
   padding: 10px;
   border-radius: 5px;
+  border: 1px solid #000000;
+  padding: 20px;
+}
+
+.container h1 {
+  font-size: 2em;
 
 }
 
-.alternative {
+.btn{
   border: 1px solid #000000;
   background-color: #7d9cb1;
   border-radius: 3px;
-  padding: 5px, 10px;
-  margin: 10%;
+  padding: 20px;
   color:black;
-  font-size: 2em;
+  font-size: 1.5em;
+
 }
 
 .btn-grid {
@@ -58,14 +63,15 @@ body {
   max-width: 80%;
   padding: 10px;
   border-radius: 5px;
-
+  border: 1px solid #000000;
 }
 
-.start-button,
-.next-button {
-  font-size: 5rem;
+.startbutton {
+  font-size: 2rem;
   font-weight: bold;
   padding: 20px, 20px;
+  margin-left:40%;
+  margin-top:10%;
 }
 
 .controls {
@@ -81,8 +87,9 @@ body {
   max-width: 80%;
   padding: 10px;
   border-radius: 5px;
+  border: 1px solid #000000;
 }
 
-/*.hide {
+.hide {
   display: none;
-}*/
+}
