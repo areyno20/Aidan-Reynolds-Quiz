@@ -12,19 +12,21 @@
         <span class="number-of-question">1 of 5 questions</span>
       </div>
       <div class="timer">
-        <span class="time-left">10s</span>
+        <span class="time-left">10</span>
       </div>
     </div>
 
     <div class="container">
-      <div id="question-container" class="hide"></div>
-      <div id="question">Question</div>
-      <div id="answer-buttons" class="btn-grid">
-        <button class="alternative">Answer 1</button>
-        <button class="alternative">Answer 2</button>
-        <button class="alternative">Answer 3</button>
-        <button class="alternative">Answer 4</button>
+      <div id="question-container" class="hide">
+        <h1 id="question">Question</h1>
+        <div id="answer-buttons" class="btn-grid">
+          <button class="btn">Answer 1</button>
+          <button class="btn">Answer 2</button>
+          <button class="btn">Answer 3</button>
+          <button class="btn">Answer 4</button>
+        </div>
       </div>
+      <button id="start-button" class="startbutton">Start</button>
     </div>
 
     <div class="score-container">
@@ -32,7 +34,6 @@
     </div>
 
     <div class="controls">
-      <button id="start-button">Start</button>
       <button id="next-button" class="hide">Next Question</button>
       <button id="restart" class="hide">Restart</button>
     </div>
