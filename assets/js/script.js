@@ -3,16 +3,16 @@ var startButton = document.getElementById('start-button')
 var questionContainerEl = document.getElementById('question-container')
 var questionEl = document.getElementById('question')
 var answerButtonsEl = document.getElementById('answer-buttons')
-var nextEl = document.getElementById('next-button')
+var nextEl = document.getElementById('next')
 var restartEl = document.getElementById('restart')
 var timeLeft = document.getElementById("time-left");
+var scoreEl = document.getElementById("user-score");
+var finalEl = document.getElementById("final-score");
 var questionCount;
-var scoreCount = 0;
-var count = 10;
-var countdown;
+var completeQuiz;
+var count;
 
 let shuffledQuestions, currentQuestionIndex
-
 
 
 //Quiz Question Array
@@ -28,7 +28,7 @@ const questions = [
   },
   
   {
-    question: "When an operator’s value is NULL, the type of returned by the unary operator is:",
+    question: "When an operators value is NULL, the type of returned by the unary operator is:",
     answers: [
       {text: "Object", correct: true},
       {text: "Boolean",  correct: false},
@@ -69,15 +69,11 @@ const questions = [
   ]
 
 //Start Game
-
-startButton.addEventListener('click', startQuiz)
-
 function startQuiz() {
   startButton.classList.add('hide')
   shuffledQuestions = questions.sort(() => Math.random() - .5)
   currentQuestionIndex = 0
   questionContainerEl.classList.remove('hide')
-  nextEl.classList.remove('hide')
   restartEl.classList.remove('hide')
   setNextQuestion()
 }
@@ -86,17 +82,21 @@ function startQuiz() {
 function setNextQuestion(){
   resetstate()
   showQuestion(shuffledQuestions[currentQuestionIndex])
+  if(completeQuiz == 0){
+    var totalScore = $(".score").text()
+    alert("quiz completed. Total Score is :", totalScore);
+  }
 }
 
 //Showing Questions
 function showQuestion(question){
   questionEl.innerText = question.question
-  question.answers.forEach(answer => {
+  question.answers.forEach(answers => {
     const button = document.createElement('button')
-    button.innerText = answer.text
+    button.innerText = answers.text
     button.classList.add('btn')
-    if(answer.correct){
-      button.dataset.correct = answer.correct
+    if(answers.correct){
+      button.dataset.correct = answers.correct
     }
     button.addEventListener('click', selectAnswer)
     answerButtonsEl.appendChild(button)
@@ -118,6 +118,7 @@ function selectAnswer(e){
   Array.from(answerButtonsEl.children).forEach(button => {
     setStatusClass(button, button.dataset.correct)
   })
+  nextEl.classList.remove('hide')
 }
 
 function setStatusClass(element, correct){
@@ -130,18 +131,52 @@ function setStatusClass(element, correct){
   }
 }
 
-function clearStatusClass (){
+function clearStatusClass (element){
+  element.classList.remove('correct')
+  element.classList.remove('wrong')
+}
+
+//Event Listeners
+startButton.addEventListener('click', startQuiz)
+nextEl.addEventListener('click', () => {
+  currentQuestionIndex++
+  setNextQuestion()
+})
+
+restartEl.addEventListener('click', () => {
+  location.reload();
+})
+
+
+//Final Score Show
+
+
+
+//Timer
+function timer() {
+  var t = 60;
+  clearInterval(window.timerInterval);
+
+  window.timerInterval = setInterval(function() {
+    if (t >= 0) {
+      document.getElementById("time-left").innerHTML = t;
+      console.log(t);
+      t--;
+    } else {
+      document.getElementById("time-left").innerHTML = "Time Up! Please Restart.";
+      resetstate();
+    }
+  }, 1000);
 
 }
 
-//Timer
-const timerDisplay = () => {
-  countdown = setInterval(() => {
-    count--;
-    timeLeft.innerHTML = `${count} seconds`;
-    if (count == 0) {
-      clearInterval(countdown);
-      displayNext();
-    }
-  }, 1000);
-};
+//Scoreboard
+
+let numCorrect = 0;
+
+function scoreCheck(element, answers) {
+  clearStatusClass(element)
+
+console.log(numCorrect);
+scoreEl.innerHTML = `${numCorrect} out of 5`;
+}

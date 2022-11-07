@@ -42,12 +42,25 @@ body {
 
 .btn{
   border: 1px solid #000000;
-  background-color: #7d9cb1;
+  background-color: #a4b4bec2;
   border-radius: 3px;
   padding: 20px;
   color:black;
   font-size: 1.5em;
 
+}
+
+.btn:hover {
+  border: #1900ff;
+  cursor:grab;
+}
+
+.btn.correct {
+  background-color: #53ff3c;
+}
+
+.btn.wrong {
+  background-color: #ff3232;
 }
 
 .btn-grid {
@@ -67,11 +80,13 @@ body {
 }
 
 .startbutton {
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: bold;
   padding: 20px, 20px;
-  margin-left:40%;
+  margin-left:35%;
   margin-top:10%;
+  padding: 5%;
+  background-color: #6c84d1;
 }
 
 .controls {
