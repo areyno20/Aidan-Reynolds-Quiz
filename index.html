@@ -12,7 +12,7 @@
         <span class="number-of-question">1 of 5 questions</span>
       </div>
       <div class="timer">
-        <span class="time-left">10</span>
+        <span class="time-left" id="time-left">60</span>
       </div>
     </div>
 
@@ -26,7 +26,8 @@
           <button class="btn">Answer 4</button>
         </div>
       </div>
-      <button id="start-button" class="startbutton">Start</button>
+      <div id="final-score" class="hide">Final Score</div>
+      <button id="start-button" class="startbutton" onclick=timer()>Start</button>
     </div>
 
     <div class="score-container">
@@ -34,7 +35,7 @@
     </div>
 
     <div class="controls">
-      <button id="next-button" class="hide">Next Question</button>
+      <button id="next" class="hide">Next Question</button>
       <button id="restart" class="hide">Restart</button>
     </div>
 
